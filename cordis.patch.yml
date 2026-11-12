@@ -1,0 +1,5 @@
+# AI 抖音日报：douyin_ai 工具（关键词日报/聚类/HTML）+ douyin-ai-feed 技能 + 侧栏看板。
+# 浏览器半边由 dsh.client 声明加载。
+- insert:
+    - id: douyin-ai-feed
+      name: 'dsh-douyin-ai-feed'

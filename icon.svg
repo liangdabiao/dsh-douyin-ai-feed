@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="3" y="3" width="58" height="58" rx="13" fill="#141414"/>
+  <rect x="3" y="3" width="58" height="58" rx="13" fill="none" stroke="#25F4EE" stroke-width="3"/>
+  <!-- 抖音青：AI 日报（报纸 + 音符波） -->
+  <g stroke="#25F4EE" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M14 20h36"/>
+    <path d="M14 28h20"/>
+    <path d="M14 35h20"/>
+    <path d="M14 42h14"/>
+  </g>
+  <path d="M40 28v14a6 6 0 1 1-4-5.6" fill="none" stroke="#fe2c55" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M40 28a8 8 0 0 0 7 4.5" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+</svg>
