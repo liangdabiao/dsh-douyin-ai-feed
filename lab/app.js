@@ -238,7 +238,7 @@
     const reports = c.reports || []
     return `
       <header class="head">
-        <span class="eyebrow">DOUYIN AI DAILY</span>
+        <span class="eyebrow">DOUYIN TRENDING DAILY</span>
         <div class="head-row">
           <h1>抖音<strong>热点日报</strong></h1>
         </div>
