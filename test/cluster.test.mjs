@@ -108,7 +108,7 @@ test('generateReport：上游模板占位符全部填充 + 卡片渲染', () => 
   ]
   const articles = clusters.flatMap((c) => c.articles)
   const html = generateReport(clusters, articles, '2026-11-11')
-  assert.ok(html.includes('AI抖音信息源 - 2026-11-11'))
+  assert.ok(html.includes('抖音热点日报 - 2026-11-11'))
   assert.ok(html.includes('2026年11月11日'))
   assert.ok(html.includes('AI视频') && html.includes('其他'))
   assert.ok(html.includes('视频标题一'))

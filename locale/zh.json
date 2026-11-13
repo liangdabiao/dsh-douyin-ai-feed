@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "AI 抖音日报",
-    "description": "每日扫描抖音 AI 相关热门作品：16 点日期规则、type/topic 两轮自动聚类、互动量排序、深色青风 HTML 日报。需 RedFox API Key。"
+    "title": "抖音热点日报",
+    "description": "抖音热点日报：按关键词扫描抖音热门作品（默认 AI，可换任意关键词），16 点日期规则、type/topic 两轮自动聚类、互动量排序、深色青风 HTML 日报。需 RedFox API Key。"
   }
 }

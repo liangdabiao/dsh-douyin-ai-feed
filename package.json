@@ -1,7 +1,7 @@
 {
   "name": "dsh-douyin-ai-feed",
   "version": "0.1.0",
-  "description": "AI 抖音日报 · 每日扫描抖音 AI 相关热门作品：16 点日期规则、type/topic 两轮自动聚类、互动量排序、深色青风 HTML 日报（封面图/数据指标/日期导航），侧栏看板。需 RedFox API Key，移植自 redfox-data/redfox-community skills/douyin-ai-feed。",
+  "description": "抖音热点日报 · 按关键词扫描抖音热门作品（默认 AI，可换任意关键词）：16 点日期规则、type/topic 两轮自动聚类、互动量排序、深色青风 HTML 日报（封面图/数据指标/日期导航），侧栏看板。需 RedFox API Key，移植自 redfox-data/redfox-community skills/douyin-ai-feed。",
   "license": "MIT",
   "type": "module",
   "main": "src/host.js",

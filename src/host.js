@@ -1,4 +1,4 @@
-// AI 抖音日报 · Host 半边（douyin_ai 原生工具 + 技能提供方 + 工作流注入 + 面板数据面）。
+// 抖音热点日报 · Host 半边（douyin_ai 原生工具 + 技能提供方 + 工作流注入 + 面板数据面）。
 // 抓取/聚类/HTML 是纯数据操作由工具完成；话题总结由会话模型按技能输出。
 import Schema from '@deepseek-ai/schemastery'
 import { join, dirname } from 'node:path'
@@ -17,7 +17,7 @@ export const name = 'douyin-ai-feed' // = cordis.patch.yml 的 id
 export const inject = ['tools', 'skills', 'systemPrompt', 'webServer', 'connection']
 
 export const Config = Schema.object({
-  injectRules: Schema.boolean().default(true).description('注入 AI 抖音日报工作流到系统提示'),
+  injectRules: Schema.boolean().default(true).description('注入 抖音热点日报工作流到系统提示'),
   apiKey: Schema.string().default('').description('RedFox API Key（ak_ 开头；留空读面板设置或环境变量 REDFOX_API_KEY）'),
   proxyUrl: Schema.string().default('').description('HTTP(S) 代理（访问 redfox.hk 用），留空直连'),
   defaultKeyword: Schema.string().default('AI').description('默认搜索关键词'),
@@ -78,7 +78,7 @@ function resolveReport(rid) {
 export const douyinAiTool = {
   name: 'douyin_ai',
   description:
-    'AI 抖音日报：按关键词扫描抖音热门作品（默认 AI），按互动量排序、type/topic 两轮自动聚类，' +
+    '抖音热点日报：按关键词扫描抖音热门作品（默认 AI），按互动量排序、type/topic 两轮自动聚类，' +
     '生成深色青风 HTML 日报（封面图/数据指标/作品直链）。' +
     '流程：fetch（同步秒回，16 点日期规则自动判断查昨天/前天）→ 按分类作品一览输出总结 → html 生成日报。' +
     '分类完全由当天内容决定；每日 16 点更新前一天数据；要每日推送用 dsh 定时任务。需要 RedFox API Key。',
@@ -109,7 +109,7 @@ export const douyinAiTool = {
       const settings = getSettings()
       const apiKey = resolveApiKey({ settings, config: cfg })
       if (!apiKey) {
-        return result(false, '未配置 RedFox API Key。请用户到面板「AI 抖音日报 → 设置」填入，或在插件配置/环境变量 REDFOX_API_KEY 里配置（获取：https://www.redfox.hk/settings/api-keys?source=github）。')
+        return result(false, '未配置 RedFox API Key。请用户到面板「抖音热点日报 → 设置」填入，或在插件配置/环境变量 REDFOX_API_KEY 里配置（获取：https://www.redfox.hk/settings/api-keys?source=github）。')
       }
       const keyword = String(args.keyword || cfg.defaultKeyword || DEFAULT_KEYWORD).trim() || DEFAULT_KEYWORD
       const pageSize = Math.min(Math.max(Number(args.pageSize) || 200, 10), 200)
@@ -153,8 +153,10 @@ export const douyinAiTool = {
       const html = generateReport(clusters, raw || [], meta.date)
       const file = saveReportHtml(meta.report_id, html)
       return result(true,
-        `HTML 日报已生成：${file}。面板可直接查看（深色青风，封面图+互动数据+作品直链）；向用户输出文件路径。`,
-        `报告文件: ${file}`)
+        `HTML 日报已生成：${file}。` +
+        '桌面端 WebContentsView 会 deny window.open/target=_blank，日报只能在面板内查看——' +
+        '告诉用户点侧栏「抖音热点日报」→「报告」页（或该日报页）的「打开 HTML 日报」，不要把磁盘路径当成可点开的入口。',
+        `报告文件: ${file}\n面板入口: 侧栏「抖音热点日报」→「报告」→「打开日报」`)
     }
 
     // ── history ──────────────────────────────────────────────────────────

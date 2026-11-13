@@ -70,7 +70,7 @@ test('host 工具：fetch/clusters/html/history + 16 点规则 + 空/无 key', a
     check('fetch 入库带统计', r.ok && r.summary.includes('reportId=') && r.summary.includes('12 篇作品'), r.summary.slice(0, 70))
     check('fetch 分类一览', r.data.includes('【AI绘画】3 篇') || r.data.includes('【教程】'), (r.data || '').split('\n')[1])
     check('fetch 16 点规则自动日期', lastPayload.startTime && lastPayload.endTime && lastPayload.endTime > lastPayload.startTime, JSON.stringify(lastPayload))
-    check('fetch source 标识', lastPayload.source === 'AI抖音信息源-dsh', lastPayload.source)
+    check('fetch source 标识', lastPayload.source === '抖音热点日报-dsh', lastPayload.source)
     check('fetch pageNum/pageSize', lastPayload.pageNum === 1 && lastPayload.pageSize === 200, '')
     globalThis.__rid = r.summary.match(/reportId=([\p{L}\p{N}-]+)/u)?.[1]
   }
@@ -83,7 +83,7 @@ test('host 工具：fetch/clusters/html/history + 16 点规则 + 空/无 key', a
     check('html 生成（上游模板）', r.ok && r.summary.includes('.html'), r.summary.slice(0, 60))
     const file = r.summary.match(/：(.+?\.html)/)?.[1]
     const html = readFileSync(file, 'utf8')
-    assert.ok(html.includes('AI抖音信息源'))
+    assert.ok(html.includes('抖音热点日报'))
     assert.ok(html.includes('category-card'))
     assert.ok(!html.includes('{{DATE}}'))
     check('html 内容可读', true, '')
