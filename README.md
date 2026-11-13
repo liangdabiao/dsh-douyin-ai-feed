@@ -3,6 +3,7 @@
 DeepSeek Harness（dsh）插件：**每日扫描抖音热门作品，自动聚类生成深色青风 HTML 日报**。16 点日期规则、type/topic 两轮自动聚类、互动量排序、封面图+作品直链，侧栏看板。
 
 移植自 [redfox-data/redfox-community](https://github.com/redfox-data/redfox-community) 的 `skills/douyin-ai-feed`（Python 全量重写为 Node 原生，**零 Python 依赖**；上游 report_template.html 深色模板原样复用）。
+<img width="1377" height="1118" alt="image" src="https://github.com/user-attachments/assets/e8c039b8-05bf-40c8-9505-c716087db096" />
 
 ## 功能
 
