@@ -5,6 +5,12 @@ DeepSeek Harness（dsh）插件：**每日扫描抖音热门作品，自动聚�
 移植自 [redfox-data/redfox-community](https://github.com/redfox-data/redfox-community) 的 `skills/douyin-ai-feed`（Python 全量重写为 Node 原生，**零 Python 依赖**；上游 report_template.html 深色模板原样复用）。
 <img width="1377" height="1118" alt="image" src="https://github.com/user-attachments/assets/e8c039b8-05bf-40c8-9505-c716087db096" />
 
+## 安装
+
+```bash
+dsh plugin --profile web add https://github.com/liangdabiao/dsh-douyin-ai-feed
+```
+
 ## 功能
 
 - 🔥 **爆款发现**：按关键词搜索抖音热门作品（默认 AI，可换 ChatGPT/AI视频 等），pageSize 200
